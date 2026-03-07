@@ -94,4 +94,18 @@ with col3:
 # 6. Romantic "Touch My Heart" Interaction
 st.write("---")
 st.markdown("<p style='text-align: center;'>Hold this button to send a thousand 'I Love You's</p>", unsafe_allow_html=True)
-if st.button("❤️ Click
+if st.button("❤️ Click to Send Love"):
+    with st.empty():
+        for i in range(1, 6):
+            st.write(f"Sending Love... {'❤️' * i}")
+            time.sleep(0.3)
+        st.write("### Infinite Love Sent to Dilenth! 🥰")
+        st.balloons()
+
+# 7. Final Romantic Footer
+st.markdown(f"""
+    <div style='text-align: center; margin-top: 50px; color: #8b0000; font-family: serif;'>
+        <p>I love you more today than yesterday, but not as much as tomorrow.</p>
+        <p><b>Always Yours, [Your Name]</b></p>
+    </div>
+""", unsafe_allow_html=True)
