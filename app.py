@@ -1,111 +1,97 @@
 import streamlit as st
-import random
 import time
 
 # 1. Page Configuration
-st.set_page_config(page_title="Happiest B Dayy Babyy ", page_icon="✨")
+st.set_page_config(page_title="For My Dilenth 💖", page_icon="🏍️")
 
-# 2. Cute Custom Styling
+# 2. Romantic Aesthetic CSS
 st.markdown("""
     <style>
     .stApp {
-        background: #fff5f7;
+        background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
     }
-    .gift-box {
-        background: white;
-        padding: 25px;
-        border-radius: 30px;
-        border: 2px dashed #ffb6c1;
+    .romantic-box {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 20px;
+        border: 2px solid #d02090;
         text-align: center;
-        box-shadow: 10px 10px 0px #ffb6c1;
+        box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
         margin-bottom: 25px;
     }
-    .stButton > button {
-        background-color: #ff85a2 !important;
-        color: white !important;
-        border-radius: 50px !important;
-        border: none !important;
-        font-family: 'Comic Sans MS', cursive;
+    .wish-text {
+        font-family: 'Georgia', serif;
+        color: #8b0000;
+        font-size: 20px;
+        font-style: italic;
+        line-height: 1.6;
     }
-    h1, h2, h3 {
-        color: #ff4d6d !important;
-        font-family: 'Comic Sans MS', cursive;
+    h1 {
+        color: #d02090 !important;
+        font-family: 'Brush Script MT', cursive;
+        font-size: 45px;
+    }
+    .stButton > button {
+        background: #d02090 !important;
+        color: white !important;
+        border-radius: 25px !important;
+        width: 100%;
+        border: none !important;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. The "Love Battery" Feature
-st.markdown("<h1 style='text-align: center;'>🔋 Dilenth's Love Battery</h1>", unsafe_allow_html=True)
-st.write("Click the button to charge your heart for the day!")
-
-if 'charge' not in st.session_state:
-    st.session_state.charge = 0
-
-if st.button("Tap to Charge ❤️"):
-    if st.session_state.charge < 100:
-        st.session_state.charge += 20
-    else:
-        st.balloons()
-        st.success("Battery Full! You are 100% Loved by Me!")
-
-st.progress(st.session_state.charge / 100)
-st.write(f"Current Charge: {st.session_state.charge}%")
-
-st.write("---")
-
-# 4. Gift #1: The Virtual Star
-st.markdown("""
-    <div class="gift-box">
-        <h3>⭐ A Star for Dilenth</h3>
-        <p>I went to the digital sky and named a star after you.</p>
-        <p style="font-size: 40px;">✨ <b>Dilenth-2026</b> ✨</p>
-        <p>It will shine as long as I love you (which is forever!)</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-# 5. Gift #2: The "Mood Matcher"
-st.markdown("### 🌈 How are you feeling, Dilenth?")
-mood = st.selectbox("Pick your current mood:", ["Tired", "Happy", "Hungry", "Missing You"])
-
-if st.button("Get your Birthday Prescription"):
-    if mood == "Tired":
-        st.write("🛋️ **Prescription:** 1-hour nap + a forehead kiss from me later.")
-    elif mood == "Happy":
-        st.write("💃 **Prescription:** Keep that smile on! Let's go for a ride on the CT 100.")
-    elif mood == "Hungry":
-        st.write("🥭 **Prescription:** I'm bringing you some sour amberella with chili and salt!")
-    elif mood == "Missing You":
-        st.write("📞 **Prescription:** Call me right now for a 10-minute 'I love you' session.")
-
-st.write("---")
-
-# 6. Gift #3: The "Future Adventure" Scratch Card
-st.markdown("### 🎫 Virtual Scratch Card")
-st.write("Click below to 'scratch' and see your surprise prize!")
-
-if st.button("Scratch Here! ✨"):
-    prizes = [
-        "A 5-minute back rub 💆‍♂️",
-        "A handwritten love letter 📝",
-        "Your favorite dessert tonight 🍰",
-        "I'll wash your bike for you! 🏍️",
-        "A big tight hug for 60 seconds 🫂"
-    ]
-    prize = random.choice(prizes)
-    st.snow()
-    st.markdown(f"""
-        <div style="background: #ff4d6d; color: white; padding: 20px; border-radius: 15px;">
-            <h2 style="color: white !important;">YOU WON:</h2>
-            <p style="font-size: 24px;">{prize}</p>
-        </div>
-    """, unsafe_allow_html=True)
-
-# 7. Final Birthday Wish
-st.write("---")
+# 3. The Main Birthday Message
 st.markdown(f"""
-    <div style='text-align: center;'>
-        <p>Happy Birthday, my favorite Engineer. <br> 
-        I hope these little digital gifts made you smile today, Dilenth!</p>
-        <p style='font-size: 30px;'>🎂🎈🍰</p>
+    <div class="romantic-box">
+        <h1>Happy Birthday, Dilenth...</h1>
+        <p class="wish-text">
+            To the man who drives my heart crazy. <br>
+            You aren't just my boyfriend; you are my home. <br>
+            Today is all about you, my love.
+        </p>
     </div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
+st.balloons()
+
+# 4. The "Bike Wish" Feature (The Deeply Personal Part)
+st.markdown("### 🕊️ My Special Prayer for You")
+with st.container():
+    st.write("Dilenth, I know how much you love the road and the feel of a machine...")
+    
+    if st.button("Open My Heart's Wish for You 💌"):
+        st.snow()
+        st.markdown(f"""
+            <div style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #ff1493;">
+                <h3 style="color: #ff1493;">My Birthday Wish... 🏍️✨</h3>
+                <p style="color: #444; font-size: 18px;">
+                    "Dilenth, I see how hard you work and how much passion you have for engineering. 
+                    My biggest wish for you this year is that <b>you get your own bike very soon!</b> <br><br>
+                    I can't wait to see the look on your face when you finally hold those keys. 
+                    I'll be right there behind you, holding on tight, as we ride into our future together. 🥹💖"
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
+
+st.write("---")
+
+# 5. The "Our Future" Journey Map
+st.subheader("🗺️ Our Journey Together")
+st.write("Click the milestones to see our path!")
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    if st.button("The Past 🕰️"):
+        st.info("Every memory we've made is a treasure I keep in my heart.")
+with col2:
+    if st.button("The Present 💝"):
+        st.success("Celebrating YOU today is the best gift I could ever have.")
+with col3:
+    if st.button("The Future 🏍️"):
+        st.warning("Soon, it will be just you, me, and your new bike on the open road.")
+
+# 6. Romantic "Touch My Heart" Interaction
+st.write("---")
+st.markdown("<p style='text-align: center;'>Hold this button to send a thousand 'I Love You's</p>", unsafe_allow_html=True)
+if st.button("❤️ Click
