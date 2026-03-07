@@ -1,111 +1,88 @@
 import streamlit as st
+import random
 import time
 
 # 1. Page Configuration
-st.set_page_config(page_title="For My Dilenth 💖", page_icon="🏍️")
+st.set_page_config(page_title="Dilenth's Birthday Magic", page_icon="✨")
 
-# 2. Romantic Aesthetic CSS
+# 2. Romantic & Cute CSS
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+        background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
     }
-    .romantic-box {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 30px;
-        border-radius: 20px;
-        border: 2px solid #d02090;
+    .main-card {
+        background: white;
+        padding: 25px;
+        border-radius: 30px;
+        border: 2px solid #f06292;
         text-align: center;
-        box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-        margin-bottom: 25px;
-    }
-    .wish-text {
-        font-family: 'Georgia', serif;
-        color: #8b0000;
-        font-size: 20px;
-        font-style: italic;
-        line-height: 1.6;
-    }
-    h1 {
-        color: #d02090 !important;
-        font-family: 'Brush Script MT', cursive;
-        font-size: 45px;
+        box-shadow: 0px 10px 25px rgba(240, 98, 146, 0.3);
+        margin-bottom: 20px;
     }
     .stButton > button {
-        background: #d02090 !important;
+        background: #f06292 !important;
         color: white !important;
-        border-radius: 25px !important;
-        width: 100%;
+        border-radius: 50px !important;
         border: none !important;
+        font-weight: bold !important;
+        transition: 0.3s ease;
+    }
+    .stButton > button:hover {
+        background: #e91e63 !important;
+        transform: scale(1.05);
+    }
+    h1, h2, h3 {
+        color: #ad1457 !important;
+        font-family: 'Comic Sans MS', cursive;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. The Main Birthday Message
+# 3. Main Header
 st.markdown(f"""
-    <div class="romantic-box">
-        <h1>Happy Birthday, Patiyoo...</h1>
-        <p class="wish-text">
-            To the man who drives my heart crazy. <br>
-            You aren't just my boyfriend; you are my home. <br>
-            Today is all about you, my love.
-        </p>
+    <div class="main-card">
+        <h1>Happy Birthday, Dilenth! 🎉</h1>
+        <p style='font-size: 18px; color: #ad1457;'>My favorite person, my best friend, and my future rider. 🏍️</p>
     </div>
     """, unsafe_allow_html=True)
 
 st.balloons()
 
-# 4. The "Bike Wish" Feature (The Deeply Personal Part)
-st.markdown("### 🕊️ My Special Prayer for You")
-with st.container():
-    st.write("Babe, I know how much you love the road and the feel of a machine...")
-    
-    if st.button("Open My Heart's Wish for You 💌"):
+# 4. Surprise #1: The "Wish for the Bike" (Romantic Feature)
+st.markdown("### 🕊️ My Deepest Wish for You")
+with st.expander("Click to read my heart's wish..."):
+    st.write("Dilenth, I see how your eyes light up when you see a beautiful machine. 🛠️")
+    st.write("My biggest birthday wish for you is that **you get your own bike very, very soon.**")
+    st.write("I can already imagine us riding together, feeling the wind, with me holding you tight. I believe in you and your dreams! 🥹💖")
+    if st.button("Send a Virtual Prayer for the Bike 🏍️"):
         st.snow()
-        st.markdown(f"""
-            <div style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #ff1493;">
-                <h3 style="color: #ff1493;">My Birthday Wish... 🏍️✨</h3>
-                <p style="color: #444; font-size: 18px;">
-                    "Babee, I see how hard you work and how much passion you have for engineering. 
-                    My biggest wish for you this year is that <b>you get your own bike very soon!</b> <br><br>
-                    I can't wait to see the look on your face when you finally hold those keys. 
-                    I'll be right there behind you, holding on tight, as we ride into our future together. 🥹💖"
-                </p>
-            </div>
-            """, unsafe_allow_html=True)
+        st.success("Prayer sent to the universe! It’s coming soon, Dilenth! ✨")
 
 st.write("---")
 
-# 5. The "Our Future" Journey Map
-st.subheader("🗺️ Our Journey Together")
-st.write("Click the milestones to see our path!")
-
+# 5. Surprise #2: Digital Flower Bouquet (Cute Feature)
+st.markdown("### 🌷 Pick a Flower for a Surprise")
 col1, col2, col3 = st.columns(3)
 with col1:
-    if st.button("The Past 🕰️"):
-        st.info("Every memory we've made is a treasure I keep in my heart.")
+    if st.button("🌹"):
+        st.write("I love you more than words can say.")
 with col2:
-    if st.button("The Present 💝"):
-        st.success("Celebrating YOU today is the best gift I could ever have.")
+    if st.button("🌻"):
+        st.write("You are the sunshine in my life.")
 with col3:
-    if st.button("The Future 🏍️"):
-        st.warning("Soon, it will be just you, me")
+    if st.button("🌸"):
+        st.write("You are so handsome and kind.")
 
-# 6. Romantic "Touch My Heart" Interaction
-st.write("---")
-st.markdown("<p style='text-align: center;'>Hold this button to send a thousand 'I Love You's</p>", unsafe_allow_html=True)
-if st.button("❤️ Click to Send Love"):
-    with st.empty():
-        for i in range(1, 6):
-            st.write(f"Sending Love... {'❤️' * i}")
-            time.sleep(0.3)
-        st.write("### Infinite Love Sent to Dilenth! 🥰")
-        st.balloons()
-
-# 7. Final Romantic Footer
-st.markdown(f"""
-    <div style='text-align: center; margin-top: 50px; color: #8b0000; font-family: serif;'>
-        <p>I love you sooo much my dudu bboo</p>
-        <p><b>Always Yours, Asithi.</b></p>
-    </div>
-""", unsafe_allow_html=True)
+# 6. Surprise #3: The "Love Note" Generator
+st.markdown("### 💌 Random Love Note")
+notes = [
+    "Dilenth, you're the best thing that ever happened to me. ❤️",
+    "I'm so proud of the man you are becoming. 👨‍🔬",
+    "Every day with you feels like a beautiful dream. ✨",
+    "I can't wait to see you on your new bike! 🏍️💨",
+    "You have the most beautiful soul I've ever known. 💎"
+]
+if st.button("Generate a Love Note"):
+    note = random.choice(notes)
+    st.markdown(f"<div style='background:
