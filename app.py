@@ -44,7 +44,7 @@ st.markdown("""
 # 3. The Main Birthday Message
 st.markdown(f"""
     <div class="romantic-box">
-        <h1>Happy Birthday, Dilenth...</h1>
+        <h1>Happy Birthday, Patiyoo...</h1>
         <p class="wish-text">
             To the man who drives my heart crazy. <br>
             You aren't just my boyfriend; you are my home. <br>
@@ -58,7 +58,7 @@ st.balloons()
 # 4. The "Bike Wish" Feature (The Deeply Personal Part)
 st.markdown("### 🕊️ My Special Prayer for You")
 with st.container():
-    st.write("Dilenth, I know how much you love the road and the feel of a machine...")
+    st.write("Babe, I know how much you love the road and the feel of a machine...")
     
     if st.button("Open My Heart's Wish for You 💌"):
         st.snow()
