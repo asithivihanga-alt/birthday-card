@@ -89,7 +89,7 @@ with col2:
         st.success("Celebrating YOU today is the best gift I could ever have.")
 with col3:
     if st.button("The Future 🏍️"):
-        st.warning("Soon, it will be just you, me, and your new bike on the open road.")
+        st.warning("Soon, it will be just you, me")
 
 # 6. Romantic "Touch My Heart" Interaction
 st.write("---")
@@ -105,7 +105,7 @@ if st.button("❤️ Click to Send Love"):
 # 7. Final Romantic Footer
 st.markdown(f"""
     <div style='text-align: center; margin-top: 50px; color: #8b0000; font-family: serif;'>
-        <p>I love you more today than yesterday, but not as much as tomorrow.</p>
-        <p><b>Always Yours, [Your Name]</b></p>
+        <p>I love you sooo much my dudu bboo</p>
+        <p><b>Always Yours, Asithi.</b></p>
     </div>
 """, unsafe_allow_html=True)
