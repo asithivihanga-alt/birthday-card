@@ -3,7 +3,7 @@ import random
 import time
 
 # 1. Page Configuration
-st.set_page_config(page_title="Dilenth's Magical Day", page_icon="✨")
+st.set_page_config(page_title="Happiest B Dayy Babyy ", page_icon="✨")
 
 # 2. Cute Custom Styling
 st.markdown("""
