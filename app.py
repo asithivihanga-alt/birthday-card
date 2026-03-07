@@ -1,96 +1,106 @@
 import streamlit as st
+import time
 
 # 1. Page Configuration
-st.set_page_config(page_title="Happy Birthday, Baby!", page_icon="💖")
+st.set_page_config(page_title="HBD Dilenth! 💖", page_icon="🏎️")
 
-# 2. The "Magic" CSS Styling
+# 2. Advanced CSS Styling
 st.markdown("""
     <style>
-    /* Full page background */
     .stApp {
-        background: linear-gradient(180deg, #ffafbd 0%, #ffc3a0 100%);
+        background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
     }
-
-    /* The Birthday Card Container */
     .birthday-card {
-        background-color: rgba(255, 255, 255, 0.85);
+        background-color: rgba(255, 255, 255, 0.9);
         padding: 30px;
         border-radius: 25px;
         border: 3px solid #ff69b4;
         text-align: center;
         box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
-        margin-top: 20px;
+        margin-bottom: 20px;
     }
-
-    /* Floating Heart Animation */
-    @keyframes floating {
-        0% { transform: translateY(0px); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0px); }
-    }
-
-    .heart-icon {
-        font-size: 50px;
-        animation: floating 3s ease-in-out infinite;
-        display: inline-block;
-    }
-
     h1 {
         color: #d02090 !important;
         font-family: 'Arial Rounded MT Bold', sans-serif;
-        font-size: 35px;
     }
-
-    .love-text {
-        color: #e91e63 !important;
-        font-size: 20px;
-        font-family: 'Georgia', serif;
-        line-height: 1.6;
-    }
-
-    /* Styling the button */
-    div.stButton > button:first-child {
-        background: linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%);
-        color: white;
-        border-radius: 50px;
-        border: none;
-        font-weight: bold;
-        padding: 10px 25px;
-        box-shadow: 0px 4px 15px rgba(255, 65, 108, 0.4);
+    .stButton > button {
+        background: linear-gradient(45deg, #ff416c, #ff4b2b) !important;
+        color: white !important;
+        border-radius: 20px !important;
+        font-weight: bold !important;
+        height: 60px;
+        width: 100%;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Floating Hearts & Title
-st.markdown('<div style="text-align: center;"><span class="heart-icon">💖</span></div>', unsafe_allow_html=True)
-
-# Wrap everything in a card
-st.markdown("""
+# 3. Main Header
+st.markdown(f"""
     <div class="birthday-card">
-        <h1>🎈 Happy Birthday, Baby! 🎈</h1>
-        <p class="love-text">
-            To the one who holds my heart... <br>
-            You are my favorite adventure and my greatest love. <br>
-            I'm so lucky to have you in my life! <br><br>
-            <b>I LOVE YOU! 💗✨</b>
+        <h1>🎉 Happy Birthday, Dilenth! 🎉</h1>
+        <p style='color: #e91e63; font-size: 20px; font-weight: bold;'>
+            My favorite Automotive Engineer 🛠️ & My World 🌎
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-st.write("") # Spacer
+st.balloons()
 
-# 4. Interactive Elements
-col1, col2, col3 = st.columns([1,2,1])
-with col2:
-    if st.button('Click for a Birthday Surprise! 🎁'):
-        st.balloons()
+# 4. Interactive "Unlock My Heart" Quiz
+st.subheader("🔐 Dilenth's Special Challenge")
+st.write("Answer this correctly to unlock your birthday wish!")
+
+answer = st.radio("What is my favorite thing about you?", 
+                 ["Your smile", "Your love for bikes", "Everything about you!"])
+
+if st.button("Unlock Secret Message"):
+    if answer == "Everything about you!":
         st.snow()
+        st.success("Correct! You know me so well, Dilenth! ❤️")
         st.markdown("""
-            <div style="text-align: center; color: #ff1493; font-weight: bold; font-size: 18px;">
-                Sending you 1,000,000 kisses! 💋<br>
-                🎂🍰🧁🍭🌷
+            <div style="background-color: white; padding: 20px; border-radius: 15px; border: 2px solid #ff1493; text-align: center;">
+                <p style="font-size: 18px; color: #8b0000;">
+                "Dilenth, you are the most hardworking and amazing person I know. 
+                Whether you're working on engines or making me laugh, you're perfect 
+                exactly as you are. I love you so much!"
+                </p>
             </div>
             """, unsafe_allow_html=True)
+    else:
+        st.error("Close... but you know the real answer is EVERYTHING! Try again. 😘")
 
-# 5. Little Footer
-st.markdown("<p style='text-align: center; color: white; font-size: 12px; margin-top: 50px;'>Made with ❤️ by Your Girl</p>", unsafe_allow_html=True)
+st.write("---")
+
+# 5. The Surprise Grid
+st.subheader("Tap Your Birthday Gifts 🎁")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("🎁 Gift #1"):
+        st.balloons()
+        st.info("A coupon for a long ride on a CT 100! 🏍️💨")
+        
+    if st.button("💖 Gift #3"):
+        st.toast("You're the best boyfriend ever!")
+        st.write("### Sending 1000% Love to Dilenth... Done! ✅")
+
+with col2:
+    if st.button("🍰 Gift #2"):
+        st.warning("Virtual treat: A sour mango/amberella snack! 🥭😋")
+        
+    if st.button("🌟 Gift #4"):
+        st.snow()
+        st.error("Surprise! You get a 'Get Out of Trouble Free' card today! 🃏")
+
+st.write("---")
+
+# 6. The Kiss Meter
+st.subheader("💋 Dilenth's Kiss Meter")
+kisses = st.select_slider("How many kisses do you deserve today?", options=["A few", "Many", "A Million", "Infinite"])
+if st.button("Claim Kisses"):
+    st.write(f"### Result: {kisses} kisses are coming your way! 😘")
+    st.balloons()
+
+# Footer
+st.markdown("<p style='text-align: center; color: white; margin-top: 50px;'>Made with ❤️ by Your Favorite Girl</p>", unsafe_allow_html=True)
