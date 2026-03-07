@@ -1,106 +1,111 @@
 import streamlit as st
+import random
 import time
 
 # 1. Page Configuration
-st.set_page_config(page_title="HBD Dilenth! 💖", page_icon="🏎️")
+st.set_page_config(page_title="Dilenth's Magical Day", page_icon="✨")
 
-# 2. Advanced CSS Styling
+# 2. Cute Custom Styling
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+        background: #fff5f7;
     }
-    .birthday-card {
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 30px;
-        border-radius: 25px;
-        border: 3px solid #ff69b4;
+    .gift-box {
+        background: white;
+        padding: 25px;
+        border-radius: 30px;
+        border: 2px dashed #ffb6c1;
         text-align: center;
-        box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-    }
-    h1 {
-        color: #d02090 !important;
-        font-family: 'Arial Rounded MT Bold', sans-serif;
+        box-shadow: 10px 10px 0px #ffb6c1;
+        margin-bottom: 25px;
     }
     .stButton > button {
-        background: linear-gradient(45deg, #ff416c, #ff4b2b) !important;
+        background-color: #ff85a2 !important;
         color: white !important;
-        border-radius: 20px !important;
-        font-weight: bold !important;
-        height: 60px;
-        width: 100%;
+        border-radius: 50px !important;
+        border: none !important;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    h1, h2, h3 {
+        color: #ff4d6d !important;
+        font-family: 'Comic Sans MS', cursive;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Main Header
-st.markdown(f"""
-    <div class="birthday-card">
-        <h1>🎉 Happy Birthday, Dilenth! 🎉</h1>
-        <p style='color: #e91e63; font-size: 20px; font-weight: bold;'>
-            My favorite Automotive Engineer 🛠️ & My World 🌎
-        </p>
+# 3. The "Love Battery" Feature
+st.markdown("<h1 style='text-align: center;'>🔋 Dilenth's Love Battery</h1>", unsafe_allow_html=True)
+st.write("Click the button to charge your heart for the day!")
+
+if 'charge' not in st.session_state:
+    st.session_state.charge = 0
+
+if st.button("Tap to Charge ❤️"):
+    if st.session_state.charge < 100:
+        st.session_state.charge += 20
+    else:
+        st.balloons()
+        st.success("Battery Full! You are 100% Loved by Me!")
+
+st.progress(st.session_state.charge / 100)
+st.write(f"Current Charge: {st.session_state.charge}%")
+
+st.write("---")
+
+# 4. Gift #1: The Virtual Star
+st.markdown("""
+    <div class="gift-box">
+        <h3>⭐ A Star for Dilenth</h3>
+        <p>I went to the digital sky and named a star after you.</p>
+        <p style="font-size: 40px;">✨ <b>Dilenth-2026</b> ✨</p>
+        <p>It will shine as long as I love you (which is forever!)</p>
     </div>
     """, unsafe_allow_html=True)
 
-st.balloons()
+# 5. Gift #2: The "Mood Matcher"
+st.markdown("### 🌈 How are you feeling, Dilenth?")
+mood = st.selectbox("Pick your current mood:", ["Tired", "Happy", "Hungry", "Missing You"])
 
-# 4. Interactive "Unlock My Heart" Quiz
-st.subheader("🔐 Dilenth's Special Challenge")
-st.write("Answer this correctly to unlock your birthday wish!")
-
-answer = st.radio("What is my favorite thing about you?", 
-                 ["Your smile", "Your love for bikes", "Everything about you!"])
-
-if st.button("Unlock Secret Message"):
-    if answer == "Everything about you!":
-        st.snow()
-        st.success("Correct! You know me so well, Dilenth! ❤️")
-        st.markdown("""
-            <div style="background-color: white; padding: 20px; border-radius: 15px; border: 2px solid #ff1493; text-align: center;">
-                <p style="font-size: 18px; color: #8b0000;">
-                "Dilenth, you are the most hardworking and amazing person I know. 
-                Whether you're working on engines or making me laugh, you're perfect 
-                exactly as you are. I love you so much!"
-                </p>
-            </div>
-            """, unsafe_allow_html=True)
-    else:
-        st.error("Close... but you know the real answer is EVERYTHING! Try again. 😘")
+if st.button("Get your Birthday Prescription"):
+    if mood == "Tired":
+        st.write("🛋️ **Prescription:** 1-hour nap + a forehead kiss from me later.")
+    elif mood == "Happy":
+        st.write("💃 **Prescription:** Keep that smile on! Let's go for a ride on the CT 100.")
+    elif mood == "Hungry":
+        st.write("🥭 **Prescription:** I'm bringing you some sour amberella with chili and salt!")
+    elif mood == "Missing You":
+        st.write("📞 **Prescription:** Call me right now for a 10-minute 'I love you' session.")
 
 st.write("---")
 
-# 5. The Surprise Grid
-st.subheader("Tap Your Birthday Gifts 🎁")
+# 6. Gift #3: The "Future Adventure" Scratch Card
+st.markdown("### 🎫 Virtual Scratch Card")
+st.write("Click below to 'scratch' and see your surprise prize!")
 
-col1, col2 = st.columns(2)
+if st.button("Scratch Here! ✨"):
+    prizes = [
+        "A 5-minute back rub 💆‍♂️",
+        "A handwritten love letter 📝",
+        "Your favorite dessert tonight 🍰",
+        "I'll wash your bike for you! 🏍️",
+        "A big tight hug for 60 seconds 🫂"
+    ]
+    prize = random.choice(prizes)
+    st.snow()
+    st.markdown(f"""
+        <div style="background: #ff4d6d; color: white; padding: 20px; border-radius: 15px;">
+            <h2 style="color: white !important;">YOU WON:</h2>
+            <p style="font-size: 24px;">{prize}</p>
+        </div>
+    """, unsafe_allow_html=True)
 
-with col1:
-    if st.button("🎁 Gift #1"):
-        st.balloons()
-        st.info("A coupon for a long ride on a CT 100! 🏍️💨")
-        
-    if st.button("💖 Gift #3"):
-        st.toast("You're the best boyfriend ever!")
-        st.write("### Sending 1000% Love to Dilenth... Done! ✅")
-
-with col2:
-    if st.button("🍰 Gift #2"):
-        st.warning("Virtual treat: A sour mango/amberella snack! 🥭😋")
-        
-    if st.button("🌟 Gift #4"):
-        st.snow()
-        st.error("Surprise! You get a 'Get Out of Trouble Free' card today! 🃏")
-
+# 7. Final Birthday Wish
 st.write("---")
-
-# 6. The Kiss Meter
-st.subheader("💋 Dilenth's Kiss Meter")
-kisses = st.select_slider("How many kisses do you deserve today?", options=["A few", "Many", "A Million", "Infinite"])
-if st.button("Claim Kisses"):
-    st.write(f"### Result: {kisses} kisses are coming your way! 😘")
-    st.balloons()
-
-# Footer
-st.markdown("<p style='text-align: center; color: white; margin-top: 50px;'>Made with ❤️ by Your Favorite Girl</p>", unsafe_allow_html=True)
+st.markdown(f"""
+    <div style='text-align: center;'>
+        <p>Happy Birthday, my favorite Engineer. <br> 
+        I hope these little digital gifts made you smile today, Dilenth!</p>
+        <p style='font-size: 30px;'>🎂🎈🍰</p>
+    </div>
+""", unsafe_allow_html=True)
