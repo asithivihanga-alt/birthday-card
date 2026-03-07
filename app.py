@@ -66,7 +66,7 @@ with st.container():
             <div style="background: white; padding: 25px; border-radius: 15px; border-left: 5px solid #ff1493;">
                 <h3 style="color: #ff1493;">My Birthday Wish... 🏍️✨</h3>
                 <p style="color: #444; font-size: 18px;">
-                    "Dilenth, I see how hard you work and how much passion you have for engineering. 
+                    "Babee, I see how hard you work and how much passion you have for engineering. 
                     My biggest wish for you this year is that <b>you get your own bike very soon!</b> <br><br>
                     I can't wait to see the look on your face when you finally hold those keys. 
                     I'll be right there behind you, holding on tight, as we ride into our future together. 🥹💖"
