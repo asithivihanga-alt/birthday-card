@@ -1,102 +1,114 @@
 import streamlit as st
-import time
+import random
 
 # 1. Page Configuration
-st.set_page_config(page_title="Birthday Surprises for Baby! 💖", page_icon="🎁")
+st.set_page_config(page_title="For My Dilenth 💖", page_icon="🎈")
 
-# 2. Enhanced CSS Styling
+# 2. Romantic Pink & White Styling
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+        background: linear-gradient(135deg, #fff0f5 0%, #ffd1dc 100%);
     }
-    .birthday-card {
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 30px;
+    .main-card {
+        background: white;
+        padding: 25px;
         border-radius: 25px;
         border: 3px solid #ff69b4;
         text-align: center;
-        box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+        box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
         margin-bottom: 20px;
     }
-    h1 {
-        color: #d02090 !important;
-        font-family: 'Arial Rounded MT Bold', sans-serif;
-    }
-    /* Styling the grid buttons */
-    div.stButton > button:first-child {
-        background-color: #ff69b4;
-        color: white;
-        border-radius: 15px;
-        border: 2px solid #ff1493;
-        font-weight: bold;
-        height: 80px;
+    .stButton > button {
+        background-color: #ff69b4 !important;
+        color: white !important;
+        border-radius: 20px !important;
+        border: none !important;
+        font-weight: bold !important;
         width: 100%;
+        height: 50px;
+    }
+    h1, h2, h3 {
+        color: #d02090 !important;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    .message-text {
+        color: #8b0000;
         font-size: 18px;
+        line-height: 1.6;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Main Header
-st.markdown("""
-    <div class="birthday-card">
-        <h1>🎈 Happy Birthday, Baby! 🎈</h1>
-        <p style='color: #e91e63; font-size: 18px;'>
-            I've hidden some surprises for you below.<br>
-            Click each button to open your gifts! 🎁
+# 3. Sweet Short Birthday Message
+st.markdown(f"""
+    <div class="main-card">
+        <h1>Happy Birthday, Dilenth! 🎉</h1>
+        <p class="message-text">
+            To the man who makes my heart race faster than a bike engine... <br>
+            I hope your day is as wonderful and handsome as you are! ❤️
         </p>
     </div>
     """, unsafe_allow_html=True)
 
-st.write("---")
+st.balloons()
 
-# 4. The Surprise Buttons Grid
-st.subheader("Tap to Open Your Gifts 💌")
-
+# 4. The 4 Surprise Gifts
+st.subheader("🎁 Open Your 4 Surprises, Dilenth!")
 col1, col2 = st.columns(2)
 
 with col1:
-    if st.button("🎁 Gift #1"):
-        st.balloons()
-        st.success("A huge hug is waiting for you! 🤗")
-        
-    if st.button("💖 Gift #3"):
+    if st.button("Surprise 1 ✨"):
+        st.toast("Gift Unlocked!")
+        st.info("A coupon for a 'No-Arguments' day! You win every debate today. 😉")
+    
+    if st.button("Surprise 3 🏍️"):
         st.snow()
-        st.info("I promise to love you more every single day. ✨")
+        st.success("My biggest wish: That you get your own bike very soon! I'll be your #1 pillion rider. 🥹")
 
 with col2:
-    if st.button("🍰 Gift #2"):
-        st.toast("Yum! Virtual cake for my favorite person!", icon='🎂')
-        st.warning("We're going to eat so much real cake later! 😋")
-        
-    if st.button("🌟 Gift #4"):
-        st.balloons()
-        st.balloons()
-        st.error("Surprise! You get 100 extra kisses today! 💋")
+    if st.button("Surprise 2 🍫"):
+        st.warning("A virtual box of your favorite treats (and some sour mangoes!) 🥭")
+    
+    if st.button("Surprise 4 🎫"):
+        st.error("One 'Free Bike Wash' by me once you get your new ride! 🧼")
 
 st.write("---")
 
-# 5. Interactive "Kiss Counter"
-st.subheader("How many kisses do you want? 💋")
-kiss_count = st.slider("", 0, 100, 50)
-if st.button("Claim Kisses!"):
-    st.write(f"### Sending {kiss_count} virtual kisses to you right now! 😘")
-    progress_bar = st.progress(0)
-    for percent_complete in range(100):
-        time.sleep(0.01)
-        progress_bar.progress(percent_complete + 1)
-    st.write("Done! Check your cheeks! ❤️")
-
-# 6. Final Big Button
-if st.button("Tap for the BIGGEST Surprise! 💓"):
+# 5. The Kisses Thing
+st.subheader("💋 Send Yourself Kisses")
+kiss_type = st.radio("Pick a kiss style:", ["Sweet Forehead Kiss", "Romantic Long Kiss", "Cute Cheek Kiss"])
+if st.button("Claim My Kiss! 😘"):
     st.balloons()
-    st.snow()
-    st.markdown("""
-        <div style="text-align: center; background-color: white; padding: 20px; border-radius: 15px; border: 5px dashed #ff1493;">
-            <h2 style="color: #ff1493;">You are my Forever & Always!</h2>
-            <p style="font-size: 20px;">Happy Birthday, Baby. I love you to the moon and back! 🌙✨</p>
-        </div>
-        """, unsafe_allow_html=True)
+    if kiss_type == "Romantic Long Kiss":
+        st.write("### 💋💋💋 Sending a deep, long kiss to my favorite guy!")
+    else:
+        st.write(f"### 💋 A {kiss_type} sent with all my love!")
 
-# Footer
-st.markdown("<p style='text-align: center; color: white; margin-top: 50px;'>Created with ❤️ by Your Girl</p>", unsafe_allow_html=True)
+st.write("---")
+
+# 6. A Cute Question
+st.subheader("❓ A Quick Question for You...")
+q_ans = st.selectbox("Who loves you the most in the entire world?", ["Pick one...", "My Mom", "My Girl", "Both equally!"])
+
+if q_ans == "My Girl":
+    st.snow()
+    st.write("### Correct! And don't you ever forget it! 🥰")
+elif q_ans == "Both equally!":
+    st.write("### Good answer! We both adore you. ❤️")
+elif q_ans == "My Mom":
+    st.write("### She does, but I'm a very close second! 😉")
+
+# 7. Short Love U Ending Message
+st.write("---")
+st.markdown("""
+    <div style='text-align: center; background: white; padding: 20px; border-radius: 15px; border: 2px dashed #ff1493;'>
+        <h2 style='color: #ff1493;'>I Love You, Dilenth!</h2>
+        <p style='color: #8b0000; font-size: 18px;'>
+            Forever & Always, <br>
+            <b>Your Favorite Girl ❤️</b>
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.caption("Coded with love in Python 🐍")
