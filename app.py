@@ -43,10 +43,10 @@ st.markdown("""
 # 3. Sweet Short Birthday Message
 st.markdown(f"""
     <div class="main-card">
-        <h1>Happy Birthday, Dilenth! 🎉</h1>
+        <h1>Happy Birthday, Patiyoo! 🎉</h1>
         <p class="message-text">
-            To the man who makes my heart race faster than a bike engine... <br>
-            I hope your day is as wonderful and handsome as you are! ❤️
+            To the man who makes my heart feeling loved everytime... <br>
+            I hope your day is as wonderful and handsome as you are! I love u soo much Babee ❤️
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -64,14 +64,14 @@ with col1:
     
     if st.button("Surprise 3 🏍️"):
         st.snow()
-        st.success("My biggest wish: That you get your own bike very soon! I'll be your #1 pillion rider. 🥹")
+        st.success("My biggest wish: That you get your own bike very soon!  🥹")
 
 with col2:
     if st.button("Surprise 2 🍫"):
-        st.warning("A virtual box of your favorite treats (and some sour mangoes!) 🥭")
+        st.warning("A virtual box of your favorite treats  (and some sour mangoes!) 🥭")
     
     if st.button("Surprise 4 🎫"):
-        st.error("One 'Free Bike Wash' by me once you get your new ride! 🧼")
+        st.error("1000 Virtual hugs from mee! ")
 
 st.write("---")
 
@@ -87,17 +87,33 @@ if st.button("Claim My Kiss! 😘"):
 
 st.write("---")
 
-# 6. A Cute Question
-st.subheader("❓ A Quick Question for You...")
-q_ans = st.selectbox("Who loves you the most in the entire world?", ["Pick one...", "My Mom", "My Girl", "Both equally!"])
+# 6. NEW QUESTION STYLE: The Love Slider
+st.subheader("❓ A Secret Question for Dilenth...")
+st.write("Slide the heart to 100% to unlock my answer!")
 
-if q_ans == "My Girl":
+# The interactive slider
+love_percent = st.select_slider(
+    "How much do I love you?",
+    options=[0, 20, 40, 60, 80, 100],
+    value=0
+)
+
+if love_percent < 100:
+    st.write(f"### Current Love Level: {love_percent}% 💓")
+    st.write("Keep sliding... it's much higher than that! 😉")
+else:
     st.snow()
-    st.write("### Correct! And don't you ever forget it! 🥰")
-elif q_ans == "Both equally!":
-    st.write("### Good answer! We both adore you. ❤️")
-elif q_ans == "My Mom":
-    st.write("### She does, but I'm a very close second! 😉")
+    st.markdown("""
+        <div style='background: #ffebf0; padding: 15px; border-radius: 15px; border: 2px solid #ff1493; text-align: center;'>
+            <h3 style='color: #ff1493; margin: 0;'>🏆 YOU UNLOCKED THE TRUTH!</h3>
+            <p style='color: #8b0000; font-size: 18px; margin-top: 10px;'>
+                The truth is... I love you more than all the stars in the sky 
+                and more than every bike on the road! 🌌🏍️
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+
+
 
 # 7. Short Love U Ending Message
 st.write("---")
