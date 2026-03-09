@@ -88,7 +88,7 @@ if st.button("Claim My Kiss! 😘"):
 st.write("---")
 
 # 6. NEW QUESTION STYLE: The Love Slider
-st.subheader("❓ A Secret Question for Dilenth...")
+st.subheader("❓ A Secret Question for my duduu...")
 st.write("Slide the heart to 100% to unlock my answer!")
 
 # The interactive slider
