@@ -107,8 +107,8 @@ else:
         <div style='background: #ffebf0; padding: 15px; border-radius: 15px; border: 2px solid #ff1493; text-align: center;'>
             <h3 style='color: #ff1493; margin: 0;'>🏆 YOU UNLOCKED THE TRUTH!</h3>
             <p style='color: #8b0000; font-size: 18px; margin-top: 10px;'>
-                The truth is... I love you more than all the stars in the sky 
-                and more than every bike on the road! 🌌🏍️
+                The truth is... I love you to the moon & the back 
+                and more than every bike on the road ! 🌌🏍️
             </p>
         </div>
     """, unsafe_allow_html=True)
@@ -122,7 +122,8 @@ st.markdown("""
         <h2 style='color: #ff1493;'>I Love You, Dilenth!</h2>
         <p style='color: #8b0000; font-size: 18px;'>
             Forever & Always, <br>
-            <b>Your Favorite Girl ❤️</b>
+            <b>Your Favorite Girl (KKK) , Asiii
+            XOXO❤️</b>
         </p>
     </div>
     """, unsafe_allow_html=True)
