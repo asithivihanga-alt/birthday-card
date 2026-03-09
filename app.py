@@ -1,108 +1,102 @@
 import streamlit as st
-import random
 import time
 
 # 1. Page Configuration
-st.set_page_config(page_title="Kisses for Dilenth 💋", page_icon="😘")
+st.set_page_config(page_title="Birthday Surprises for Baby! 💖", page_icon="🎁")
 
-# 2. Romantic & Kiss-Themed CSS
+# 2. Enhanced CSS Styling
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #ffc1cc 0%, #ff99aa 100%);
+        background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
     }
-    .main-card {
-        background: white;
-        padding: 25px;
-        border-radius: 30px;
-        border: 3px solid #ff4d6d;
+    .birthday-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 25px;
+        border: 3px solid #ff69b4;
         text-align: center;
-        box-shadow: 0px 10px 25px rgba(255, 77, 109, 0.4);
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
         margin-bottom: 20px;
     }
-    .stButton > button {
-        background: #ff4d6d !important;
-        color: white !important;
-        border-radius: 50px !important;
-        border: none !important;
-        font-weight: bold !important;
-        font-size: 18px !important;
-        height: 50px;
-        transition: 0.3s ease;
+    h1 {
+        color: #d02090 !important;
+        font-family: 'Arial Rounded MT Bold', sans-serif;
     }
-    .stButton > button:hover {
-        background: #ff0033 !important;
-        transform: scale(1.1);
-    }
-    h1, h2, h3 {
-        color: #c9184a !important;
-        font-family: 'Comic Sans MS', cursive;
+    /* Styling the grid buttons */
+    div.stButton > button:first-child {
+        background-color: #ff69b4;
+        color: white;
+        border-radius: 15px;
+        border: 2px solid #ff1493;
+        font-weight: bold;
+        height: 80px;
+        width: 100%;
+        font-size: 18px;
     }
     </style>
     """, unsafe_allow_html=True)
 
 # 3. Main Header
-st.markdown(f"""
-    <div class="main-card">
-        <h1>Happy Birthday, Dilenth! 🎂</h1>
-        <p style='font-size: 18px; color: #ff4d6d;'>Sending you a million virtual kisses today! 💋💋💋</p>
+st.markdown("""
+    <div class="birthday-card">
+        <h1>🎈 Happy Birthday, Baby! 🎈</h1>
+        <p style='color: #e91e63; font-size: 18px;'>
+            I've hidden some surprises for you below.<br>
+            Click each button to open your gifts! 🎁
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
-st.balloons()
-
-# 4. NEW FEATURE: The Kiss Counter
-st.markdown("### 💋 The Birthday Kiss Meter")
-st.write("How many kisses do you want right now, Dilenth?")
-kiss_num = st.select_slider("", options=[10, 50, 100, "Infinite"])
-
-if st.button(f"Claim {kiss_num} Kisses! 😘"):
-    st.snow() # This creates the falling heart/star effect
-    if kiss_num == "Infinite":
-        st.write("### ♾️ Sending you endless kisses forever and ever!")
-    else:
-        st.write(f"### 💋 {kiss_num} Kisses sent to your cheeks!")
-    st.balloons()
-
 st.write("---")
 
-# 5. The "Bike Wish" (Keep this romantic part!)
-st.markdown("### 🏍️ My Heart's Wish")
-with st.expander("Click to see your gift..."):
-    st.markdown("""
-        <div style='text-align: center; font-style: italic; color: #8b0000;'>
-            "Dilenth, I wish for you to get your dream bike very soon. 
-            I can't wait for our first ride together! I'll be holding you tight the whole way." 🥹💖
-        </div>
-    """, unsafe_allow_html=True)
+# 4. The Surprise Buttons Grid
+st.subheader("Tap to Open Your Gifts 💌")
 
-# 6. Surprise: The "Kiss Button" Grid
-st.markdown("### 🎁 Tap for a Surprise Kiss")
 col1, col2 = st.columns(2)
+
 with col1:
-    if st.button("Forehead Kiss 😚"):
-        st.info("A kiss for my hardworking Engineer. I'm so proud of you!")
-    if st.button("Hand Kiss 🤝"):
-        st.success("A kiss for the gentleman who treats me like a queen.")
+    if st.button("🎁 Gift #1"):
+        st.balloons()
+        st.success("A huge hug is waiting for you! 🤗")
+        
+    if st.button("💖 Gift #3"):
+        st.snow()
+        st.info("I promise to love you more every single day. ✨")
+
 with col2:
-    if st.button("Cheek Kiss 😊"):
-        st.warning("A cute kiss just because you make me smile, Dilenth!")
-    if st.button("The BIG One 💋"):
-        st.error("A long, romantic birthday kiss! I love you!")
+    if st.button("🍰 Gift #2"):
+        st.toast("Yum! Virtual cake for my favorite person!", icon='🎂')
+        st.warning("We're going to eat so much real cake later! 😋")
+        
+    if st.button("🌟 Gift #4"):
+        st.balloons()
+        st.balloons()
+        st.error("Surprise! You get 100 extra kisses today! 💋")
 
 st.write("---")
 
-# 7. Final Secret Surprise
-if st.button("Final Birthday Surprise! ✨"):
+# 5. Interactive "Kiss Counter"
+st.subheader("How many kisses do you want? 💋")
+kiss_count = st.slider("", 0, 100, 50)
+if st.button("Claim Kisses!"):
+    st.write(f"### Sending {kiss_count} virtual kisses to you right now! 😘")
+    progress_bar = st.progress(0)
+    for percent_complete in range(100):
+        time.sleep(0.01)
+        progress_bar.progress(percent_complete + 1)
+    st.write("Done! Check your cheeks! ❤️")
+
+# 6. Final Big Button
+if st.button("Tap for the BIGGEST Surprise! 💓"):
     st.balloons()
     st.snow()
     st.markdown("""
-        <div style='text-align: center;'>
-            <h2 style='color: #ff4d6d;'>I Love You, Dilenth!</h2>
-            <p style='font-size: 20px;'>You + Me + Your New Bike = My Perfect Dream. 🏍️👩‍❤️‍👨</p>
-            <p style='font-size: 40px;'>💋💋💋💋💋</p>
+        <div style="text-align: center; background-color: white; padding: 20px; border-radius: 15px; border: 5px dashed #ff1493;">
+            <h2 style="color: #ff1493;">You are my Forever & Always!</h2>
+            <p style="font-size: 20px;">Happy Birthday, Baby. I love you to the moon and back! 🌙✨</p>
         </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
 
 # Footer
-st.markdown("<p style='text-align: center; color: #ff4d6d; font-size: 14px; margin-top: 50px;'>Made with all my kisses ❤️ for Dilenth</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: white; margin-top: 50px;'>Created with ❤️ by Your Girl</p>", unsafe_allow_html=True)
